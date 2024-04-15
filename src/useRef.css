@@ -1,0 +1,12 @@
+.active{
+    background-color: green;
+    color: white;
+}
+.inactive{
+    background-color: brown;
+    color: black;
+}
+.selected{
+color: aliceblue;
+background-color: black;
+}

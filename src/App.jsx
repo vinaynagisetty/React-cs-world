@@ -15,6 +15,9 @@ import About from "./about";
 import Login from "./loggin";
 import Logout,{ChganePassword,ChganeUserName} from "./logout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PageNotFound from "./pageNotFound";
+import List from "./listAndKeys";
+import UseRef from "./useRefExample";
 
 
 export default class App extends Component {
@@ -26,20 +29,23 @@ export default class App extends Component {
       // <About/>
       // </>
       //  <h1>ff</h1>
-        <BrowserRouter>
-           <ConditionalRendering />
+        // <BrowserRouter>
+        //    <ConditionalRendering />
            
-            <Routes>
-                 <Route exact path="/" element={<Home/>} />
-                 <Route path="/about" element={<About/>} />
-                 <Route path="/login" element={<Login/>} />
-                 <Route path="/logOut" element={<Logout/>} >
-                        <Route path="chganePassword" element={<ChganePassword />} />
-                        <Route path="ChganeUserName" element={<ChganeUserName />} />
-                  </Route>
-            </Routes>
-        </BrowserRouter>
-
+        //     <Routes>
+        //          <Route exact path="/" element={<Home/>} />
+                 
+        //          <Route path="/about" element={<About/>} />
+        //          <Route path="/login/:id/:custid" element={<Login/>} />
+        //          <Route path="/logOut" element={<Logout/>} >
+        //                 <Route path="chganePassword" element={<ChganePassword />} />
+        //                 <Route path="ChganeUserName" element={<ChganeUserName />} />
+        //           </Route>
+        //           <Route path="*" element={<PageNotFound />} />
+                  
+        //     </Routes>
+        // </BrowserRouter>
+         <UseRef />
         
         
       
