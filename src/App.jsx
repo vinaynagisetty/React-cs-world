@@ -19,7 +19,10 @@ import PageNotFound from "./pageNotFound";
 import List from "./listAndKeys";
 import UseRef from "./useRefExample";
 
-
+import CustomeHook from "./customeHookExample";
+import PropsDrilling from "./propsDrillingExample";
+import UseMemo1 from "./useMemo1";
+import UseMemo2 from "./useMemo2";
 export default class App extends Component {
   render() {
     return (
@@ -44,10 +47,13 @@ export default class App extends Component {
         //           <Route path="*" element={<PageNotFound />} />
                   
         //     </Routes>
-        // </BrowserRouter>
-         <UseRef />
+        // </BrowserRouter>  //this is the example Routing ,nested routing and query and routeparameters exmaple
+        //  <UseRef />    //this is the example for use ref 
+        // <CustomeHook />   //here i create custome hook for api calling
+        // <PropsDrilling />   //here i did props drilling and useContext
         
-        
+        // <UseMemo1 />
+        <UseMemo2 />
       
     );
   }
