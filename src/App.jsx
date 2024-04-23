@@ -23,6 +23,7 @@ import CustomeHook from "./customeHookExample";
 import PropsDrilling from "./propsDrillingExample";
 import UseMemo1 from "./useMemo1";
 import UseMemo2 from "./useMemo2";
+import Parent from "./chilfToParentCommParent";
 export default class App extends Component {
   render() {
     return (
@@ -53,7 +54,8 @@ export default class App extends Component {
         // <PropsDrilling />   //here i did props drilling and useContext
         
         // <UseMemo1 />
-        <UseMemo2 />
+        // <UseMemo2 />
+        <Parent />
       
     );
   }
