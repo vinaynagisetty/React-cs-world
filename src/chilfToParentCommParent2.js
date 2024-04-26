@@ -10,7 +10,7 @@ function AddTask({task}){
                setnewTask(task);
             }
         } type="text" />
-        <button onClick={()=>{
+        <button className="btn btn-primary" onClick={()=>{
             task(newTask)
         }}>Add Task</button>
         </>
