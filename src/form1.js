@@ -11,24 +11,24 @@ function Login(){
   })
   function formHandling(){
     if(email.trim()===''){
-        setErrors({...errrors,email:"Enter a email"});
+        setErrors((errrors)=>{ return {...errrors,email:"Enter a email"}});
 
     }
     else if(!Pattern.test(email)){
-        setErrors({...errrors,email:"Enter a valid email"});
+        setErrors((errrors)=>{return {...errrors,email:"Enter a valid email"}});
     }
     else{
-        setErrors({...errrors,email:""});
+        setErrors((errrors)=>{return {...errrors,email:""}});
     }
     if(password.trim()===''){
-        setErrors({...errrors,password:"Enter a password"});
+        setErrors((errrors)=>{return {...errrors,password:"Enter a password"}});
 
     }
     else if(password.trim().length<8){
-        setErrors({...errrors,password:"password must be 8 characters"});
+        setErrors((errrors)=>{return {...errrors,password:"password must be 8 characters"}});
     }
     else{
-        setErrors({...errrors,password:""});
+        setErrors((errrors)=>{return {...errrors,password:""}});
     }
   }
 
