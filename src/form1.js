@@ -1,70 +1,109 @@
-import { useRef, useState } from "react";
+import React, { useState } from "react";
 
-function Login(){
-   let[email,setEmail]= useState('');
-   let[password,setpassword]= useState('');   //using useState hook
-//   let psd=useRef();   //using useRef hook
- let Pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  let [errrors,setErrors]=useState({
-    email:'',
-    password:''
-  })
-  function formHandling(){
-    if(email.trim()===''){
-        setErrors((errrors)=>{ return {...errrors,email:"Enter a email"}});
+function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({
+        email: '',
+        password: ''
+    });
 
-    }
-    else if(!Pattern.test(email)){
-        setErrors((errrors)=>{return {...errrors,email:"Enter a valid email"}});
-    }
-    else{
-        setErrors((errrors)=>{return {...errrors,email:""}});
-    }
-    if(password.trim()===''){
-        setErrors((errrors)=>{return {...errrors,password:"Enter a password"}});
+    const Pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    }
-    else if(password.trim().length<8){
-        setErrors((errrors)=>{return {...errrors,password:"password must be 8 characters"}});
-    }
-    else{
-        setErrors((errrors)=>{return {...errrors,password:""}});
-    }
-  }
+    const validateForm = () => {
+        let hasErrors = false;
+
+        if (!email.trim()) {
+            setErrors(prevErrors => ({ ...prevErrors, email: 'Enter an email' }));
+            hasErrors = true;
+        } else if (!Pattern.test(email)) {
+            setErrors(prevErrors => ({ ...prevErrors, email: 'Enter a valid email' }));
+            hasErrors = true;
+        } else {
+            setErrors(prevErrors => ({ ...prevErrors, email: '' }));
+        }
+
+        if (!password.trim()) {
+            setErrors(prevErrors => ({ ...prevErrors, password: 'Enter a password' }));
+            hasErrors = true;
+        } else if (password.trim().length < 8) {
+            setErrors(prevErrors => ({ ...prevErrors, password: 'Password must be 8 characters' }));
+            hasErrors = true;
+        } else {
+            setErrors(prevErrors => ({ ...prevErrors, password: '' }));
+        }
+
+        return hasErrors;
+    };
+
+    const handleEmailChange = (e) => {
+        const { value } = e.target;
+        setEmail(value);
+
+        if (!value.trim()) {
+            setErrors(prevErrors => ({ ...prevErrors, email: 'Enter an email' }));
+        } else if (!Pattern.test(value)) {
+            setErrors(prevErrors => ({ ...prevErrors, email: 'Enter a valid email' }));
+        } else {
+            setErrors(prevErrors => ({ ...prevErrors, email: '' }));
+        }
+    };
+
+    const handlePasswordChange = (e) => {
+        const { value } = e.target;
+        setPassword(value);
+
+        if (!value.trim()) {
+            setErrors(prevErrors => ({ ...prevErrors, password: 'Enter a password' }));
+        } else if (value.trim().length < 8) {
+            setErrors(prevErrors => ({ ...prevErrors, password: 'Password must be 8 characters' }));
+        } else {
+            setErrors(prevErrors => ({ ...prevErrors, password: '' }));
+        }
+    };
+
+    const handleLogin = () => {
+        const hasErrors = validateForm();
+
+        if (!hasErrors) {
+            // Perform login action
+        }
+    };
 
     return (
-        <>
-    <div className="mt-5">
-        <div className="w-25 mt-5 m-auto border pt-4 ">
-         <div className="p-5">
-            <div className="text-center"> 
-                <label>Login Form</label>
+        <div className="mt-5">
+            <div className="w-25 mt-5 m-auto border pt-4 ">
+                <div className="p-5">
+                    <div className="text-center">
+                        <label>Login Form</label>
+                    </div>
+                    <div className="mb-3">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                            className="form-control"
+                        />
+                        {errors.email && <span className="text-danger">{errors.email}</span>}
+                    </div>
+                    <div className="mb-3">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                            className="form-control"
+                        />
+                        {errors.password && <span className="text-danger">{errors.password}</span>}
+                    </div>
+                    <div className="mt-3">
+                        <button className="btn btn-primary w-100" onClick={handleLogin}>Login</button>
+                    </div>
+                </div>
             </div>
-            <div className="mb-3"> 
-                <label>Email</label>
-                <input type="email" value={email} onChange={
-                    (e)=>{
-                        setEmail(e.target.value);
-                    }
-                    } className="form-control" />
-                 {errrors.email&&<span className="text-danger">{errrors.email}</span>}
-            </div>
-            <div  className="mb-3">
-                <label>Password</label>
-                <input type="password" value={password} onChange={
-                    (e)=>{
-                        setpassword(e.target.value);
-                    }
-                } className="form-control" />
-                     {errrors.password&&<span className="text-danger">{errrors.password}</span>}
-            </div>
-            <div className="mt-3 " >
-               <button className="btn btn-primary w-100" onClick={formHandling}>Login</button>
-            </div>
-         </div>
         </div>
-    </div>
-        </>
-    )
+    );
 }
+
 export default Login;
