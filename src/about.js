@@ -1,6 +1,6 @@
 function About(){
     return (
-        <h1>This is About compoent ,vffg</h1>
+        <h2>This is About compoent ,vffg</h2>
         
 
 
