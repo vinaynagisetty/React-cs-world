@@ -26,6 +26,7 @@ import UseMemo2 from "./useMemo2";
 import Parent from "./chilfToParentCommParent";
 import Form from "./form1";
 import AxiosExample from "./axiosExample1"
+import LazyLoading from "./lazyloading"
 export default class App extends Component {
   render() {
     return (
@@ -59,7 +60,8 @@ export default class App extends Component {
         // <UseMemo2 />
         // <Parent />  //we are doing here todo list by sending data from child to parent
         // <Form /> //basic form example using useState and useRef
-        <AxiosExample />  //example of how to use axios library
+        // <AxiosExample />  //example of how to use axios library
+        <LazyLoading />
     );
   }
 }
