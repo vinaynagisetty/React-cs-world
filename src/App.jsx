@@ -24,7 +24,7 @@ import PropsDrilling from "./propsDrillingExample";
 import UseMemo1 from "./useMemo1";
 import UseMemo2 from "./useMemo2";
 import Parent from "./chilfToParentCommParent";
-import Form from "./form1";
+// import Form from "./form1";
 import AxiosExample from "./axiosExample1"
 import LazyLoading from "./lazyloading"
 export default class App extends Component {
