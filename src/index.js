@@ -19,4 +19,5 @@ import ShoppingCart from "./shoppingCart"
 
 import ReactDOM from 'react-dom/client';
 const root = ReactDOM.createRoot(document.getElementById('vinay'));
+
 root.render(<App />);

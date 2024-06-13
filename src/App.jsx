@@ -29,9 +29,11 @@ import Parent from "./chilfToParentCommParent";
 import AxiosExample from "./axiosExample1"
 import LazyLoading from "./lazyloading"
 import HighOrderComponent from "./highOrderComponet"
+import PoratalMain from "./portal1"
 let Home=lazy(()=>import("./home"));
 let About=lazy(()=>import("./about"));
 let Login=lazy(()=>import("./loggin"));
+
 
 export default class App extends Component {
   render() {
@@ -70,7 +72,8 @@ export default class App extends Component {
         // <Form /> //basic form example using useState and useRef
         // <AxiosExample />  //example of how to use axios library
         // <LazyLoading />  //lazy loading using conditional rendering
-        <HighOrderComponent />
+        // <HighOrderComponent /> //higher order componet for common logic implementation
+        <PoratalMain />
     );
   }
 }
