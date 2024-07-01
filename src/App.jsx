@@ -30,6 +30,7 @@ import AxiosExample from "./axiosExample1"
 import LazyLoading from "./lazyloading"
 import HighOrderComponent from "./highOrderComponet"
 import PoratalMain from "./portal1"
+import UseReducerExample1 from "./useReducerHook1"
 let Home=lazy(()=>import("./home"));
 let About=lazy(()=>import("./about"));
 let Login=lazy(()=>import("./loggin"));
@@ -73,7 +74,8 @@ export default class App extends Component {
         // <AxiosExample />  //example of how to use axios library
         // <LazyLoading />  //lazy loading using conditional rendering
         // <HighOrderComponent /> //higher order componet for common logic implementation
-        <PoratalMain />
+        // <PoratalMain /> //portal concept for render the component outside the root id
+        <UseReducerExample1 />
     );
   }
 }
