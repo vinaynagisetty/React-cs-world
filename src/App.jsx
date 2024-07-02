@@ -31,6 +31,7 @@ import LazyLoading from "./lazyloading"
 import HighOrderComponent from "./highOrderComponet"
 import PoratalMain from "./portal1"
 import UseReducerExample1 from "./useReducerHook1"
+import ReduxExample from "./ReduxExample1"
 let Home=lazy(()=>import("./home"));
 let About=lazy(()=>import("./about"));
 let Login=lazy(()=>import("./loggin"));
@@ -75,7 +76,8 @@ export default class App extends Component {
         // <LazyLoading />  //lazy loading using conditional rendering
         // <HighOrderComponent /> //higher order componet for common logic implementation
         // <PoratalMain /> //portal concept for render the component outside the root id
-        <UseReducerExample1 />
+        // <UseReducerExample1 /> //useReducer hook its alternative to the useState when complex scenarios
+        <ReduxExample />
     );
   }
 }
